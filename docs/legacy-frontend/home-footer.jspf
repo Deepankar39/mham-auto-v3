@@ -1,0 +1,16 @@
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+
+            <div>
+                <strong>MHAM AUTO</strong>
+                <p>Automotive Spare Parts • Kuwait</p>
+            </div>
+
+            <p>
+                &copy; <%= java.time.Year.now().getValue() %>
+                MHAM AUTO. Academic demonstration.
+            </p>
+
+        </div>
+    </footer>

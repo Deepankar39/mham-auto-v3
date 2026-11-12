@@ -1,0 +1,22 @@
+<a class="mh-skip" href="#main-content">Skip to main content</a>
+<%@ include file="/WEB-INF/views/fragments/ui-icons.jspf" %>
+<div class="mh-topbar"><div class="mh-shell"><span>MHAM AUTO <span class="mh-dot-separator" aria-hidden="true">·</span> Kuwait automotive parts</span><span>Parts discovery for drivers, garages &amp; workshops</span></div></div>
+<header class="mh-header" role="banner">
+  <div class="mh-shell mh-header-inner">
+    <a class="mh-brand" href="${pageContext.request.contextPath}/" aria-label="MHAM AUTO home">
+      <img src="${pageContext.request.contextPath}/assets/images/mham-logo-3x.png" width="149" height="46" alt="MHAM" class="mh-brand-logo"><span class="mh-brand-auto">AUTO</span>
+    </a>
+    <form class="mh-header-search" role="search" method="get" action="${pageContext.request.contextPath}/products">
+      <label class="sr-only" for="global-parts-search">Search automotive parts</label>
+      <svg class="mh-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><use href="#mh-icon-search"/></svg>
+      <input id="global-parts-search" name="q" type="search" maxlength="80" placeholder="Search parts, brands or SKU" autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+    <div class="mh-header-actions"><a href="${pageContext.request.contextPath}/account" class="mh-header-icon"><svg class="mh-icon" width="21" height="21" aria-hidden="true"><use href="#mh-icon-user"/></svg><span>Account</span></a><a href="${pageContext.request.contextPath}/cart" class="mh-header-icon"><svg class="mh-icon" width="21" height="21" aria-hidden="true"><use href="#mh-icon-cart"/></svg><span>Cart <span class="c5-badge" data-cart-count hidden></span></span></a></div>
+    <button class="mh-menu-button" type="button" aria-controls="mh-nav" aria-expanded="false" aria-label="Open navigation"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-menu"/></svg></button>
+  </div>
+  <div class="mh-navigation-bar"><div class="mh-shell"><nav class="mh-nav" id="mh-nav" aria-label="Main navigation">
+    <a href="${pageContext.request.contextPath}/">Home</a><a href="${pageContext.request.contextPath}/products">Shop all parts</a><a href="${pageContext.request.contextPath}/catalog">Categories</a><a href="${pageContext.request.contextPath}/wishlist">Saved parts</a><a href="${pageContext.request.contextPath}/orders">Orders</a><a href="${pageContext.request.contextPath}/trade/status">Business &amp; trade</a><c:if test="${sessionScope.authUser.admin}"><a href="${pageContext.request.contextPath}/admin">Admin workspace</a></c:if>
+  </nav><div class="mh-nav-aside">AUTOMOTIVE PARTS <span aria-hidden="true">/</span> KUWAIT</div></div></div>
+</header>
+<script defer src="${pageContext.request.contextPath}/assets/js/cart-badge.js"></script>

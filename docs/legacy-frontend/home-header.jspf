@@ -1,0 +1,25 @@
+<a class="p10-skip" href="#main-content">Skip to main content</a>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a href="${pageContext.request.contextPath}/"
+               class="logo">
+                <span class="logo-symbol">M</span>
+                <span>MHAM <strong>AUTO</strong></span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About Us</a>
+                <a href="${pageContext.request.contextPath}/account">My Account</a>
+                <a href="${pageContext.request.contextPath}/cart">Cart <span class="c5-badge" data-cart-count hidden></span></a>
+            </nav>
+
+            <span class="header-label">KUWAIT</span>
+
+        </div>
+    </header>
+
+    <script defer src="${pageContext.request.contextPath}/assets/js/cart-badge.js"></script>

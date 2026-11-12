@@ -1,0 +1,5 @@
+<%@ include file="/WEB-INF/views/fragments/document-basics.jspf" %>
+<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/images/mham-official-logo.png">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/catalog-preview.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin.css">
+<script defer src="${pageContext.request.contextPath}/assets/js/catalog-preview.js"></script>

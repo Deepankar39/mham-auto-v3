@@ -1,0 +1,5 @@
+    </div>
+    <footer class="pro-admin-foot">MHAM AUTO management <span>Operations shown here are demonstration-only unless clearly stated otherwise.</span></footer>
+  </div>
+</div>
+<script defer src="${pageContext.request.contextPath}/assets/js/admin-workspace.js"></script>

@@ -1,0 +1,36 @@
+# Source-layout and plain-Java checks; does not need Tomcat/MySQL/JUnit.
+$ErrorActionPreference = 'Stop'
+$root = Split-Path -Parent $PSScriptRoot
+$build = Join-Path $root 'target\phase14-test-classes'
+New-Item -ItemType Directory -Path $build -Force | Out-Null
+$main = @(
+  'src\main\java\com\mhamauto\model\CatalogPreviewCategory.java',
+  'src\main\java\com\mhamauto\service\CatalogPreviewService.java',
+  'src\main\java\com\mhamauto\web\ViewPaths.java',
+  'src\main\java\com\mhamauto\config\AppSettings.java',
+  'src\main\java\com\mhamauto\media\ExternalImageUrlPolicy.java',
+  'tests\phase-1.3\CatalogPreviewServiceCheck.java',
+  'tests\phase-1.4\AppFoundationCheck.java'
+) | ForEach-Object { Join-Path $root $_ }
+foreach ($p in $main) { if (-not (Test-Path -LiteralPath $p)) { throw "Missing source: $p" } }
+& javac -encoding UTF-8 -d $build @main
+if ($LASTEXITCODE -ne 0) { throw 'javac compilation failed' }
+$classpath = "$build$([IO.Path]::PathSeparator)$(Join-Path $root 'src\main\resources')"
+& java -cp $classpath CatalogPreviewServiceCheck
+if ($LASTEXITCODE -ne 0) { throw 'Phase 1.3 regression failed' }
+& java -cp $classpath AppFoundationCheck
+if ($LASTEXITCODE -ne 0) { throw 'Phase 1.4 Java check failed' }
+$homeContent = Get-Content -LiteralPath (Join-Path $root 'src\main\webapp\index.jsp') -Raw
+$catalog = Get-Content -LiteralPath (Join-Path $root 'src\main\webapp\WEB-INF\views\catalog-preview.jsp') -Raw
+foreach ($fragment in @('document-basics.jspf','home-header.jspf','home-footer.jspf','catalog-header.jspf','catalog-footer.jspf')) {
+  $path = Join-Path $root "src\main\webapp\WEB-INF\views\fragments\$fragment"
+  if (-not (Test-Path -LiteralPath $path)) { throw "Missing JSP fragment: $fragment" }
+}
+if ($homeContent -notmatch 'home-header.jspf' -or $catalog -notmatch 'catalog-header.jspf') { throw 'JSP fragments not wired' }
+if ($homeContent -notmatch 'home-footer.jspf' -or $catalog -notmatch 'catalog-footer.jspf') { throw 'JSP footer fragments not wired' }
+if ($homeContent -notmatch 'document-basics.jspf' -or $catalog -notmatch 'document-basics.jspf') { throw 'Shared document defaults not wired' }
+foreach ($asset in @('src\main\webapp\assets\css\style.css','src\main\webapp\assets\css\catalog-preview.css',
+    'src\main\webapp\assets\js\catalog-preview.js','src\main\webapp\assets\images\phase13\hero-assembly.svg')) {
+    if (-not (Test-Path -LiteralPath (Join-Path $root $asset))) { throw "Missing preexisting asset: $asset" }
+}
+Write-Host 'PASS: Phase 1.4 offline Java + source regression' -ForegroundColor Green

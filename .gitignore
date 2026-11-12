@@ -1,0 +1,30 @@
+﻿# Maven build output
+target/
+*.class
+*.war
+*.log
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+
+# Local configuration
+application-local.properties
+config-local.properties
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak

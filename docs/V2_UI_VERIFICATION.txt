@@ -1,0 +1,12 @@
+MHAM AUTO V2 — Verification summary (2026-11-07)
+PASS scripts/verify_v2_ui_polish.py: 28 JSPs, 10 JS assets, 21 SVG symbols, navigation, UTF-8, session greeting
+PASS scripts/verify_pro_release.py: assets, JSP taglibs/includes, JS syntax, CSP-safe patterns
+PASS scripts/phase11_static_audit.py: XML, CSV, 26 DB table definitions, 83 Java sources, 28 JSPs, route uniqueness
+PASS isolated Chromium browser static layout: 1440px and 390px, login/admin; 8 dimension/interaction checks
+PASS black search SVG: 513x513 black to 20x20 none desktop; 221x221 black to 20x20 none mobile
+PASS business-source diff: Java source, tests, resources, SQL and POM untouched
+PASS WAR and ZIP integrity checks; WAR compiled classes/dependency jars preserved bit-for-bit
+NOT EXECUTED: Maven clean/test/package (Maven absent; Maven repository DNS inaccessible)
+NOT EXECUTED: live Tomcat/JSP/MySQL/integration tests (no running infrastructure)
+WAR was repackaged from the previously compiled artifact with updated UI resources; perform local Maven build before deployment.
+Visual previews use illustrative source-rendered HTML, NOT actual servlet/database screenshots.

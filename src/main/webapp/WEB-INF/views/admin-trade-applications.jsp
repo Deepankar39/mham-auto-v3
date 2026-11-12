@@ -1,0 +1,18 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %><%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<!doctype html><html lang="en"><head><%@ include file="/WEB-INF/views/fragments/admin-head.jspf" %><link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/trade.css"><title>Trade Applications | MHAM AUTO Admin</title><link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/premium.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ui-polish.css">
+<script defer src="${pageContext.request.contextPath}/assets/js/premium-interactions.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/ui-polish.js"></script>
+</head>
+<body><%@ include file="/WEB-INF/views/fragments/admin-shell-start.jspf" %><main id="main-content" class="a8-main mh-shell">
+<div class="a8-top"><div><p class="a8-kicker">TRADE / DEMONSTRATION DEMO</p><h1>Business account requests</h1><p>Review basic Kuwait B2B applications without changing account permissions.</p></div></div>
+
+<div class="t9-admin-stats"><div><small>Awaiting review</small><strong><c:out value="${summary.pending}"/></strong></div><div><small>Approved (demo)</small><strong><c:out value="${summary.approved}"/></strong></div><div><small>Rejected (demo)</small><strong><c:out value="${summary.rejected}"/></strong></div></div>
+<section class="a8-panel"><form method="get" action="${pageContext.request.contextPath}/admin/trade-applications" class="t9-filter"><label for="t9-filter">Application status</label><select id="t9-filter" name="status"><option value="ALL">All</option><option value="PENDING" ${statusFilter eq 'PENDING' ? 'selected' : ''}>Pending</option><option value="APPROVED" ${statusFilter eq 'APPROVED' ? 'selected' : ''}>Approved</option><option value="REJECTED" ${statusFilter eq 'REJECTED' ? 'selected' : ''}>Rejected</option></select><button type="submit">Filter</button></form>
+<div class="a8-scroll"><table class="a8-table"><thead><tr><th>Company</th><th>Contact</th><th>Type</th><th>Area</th><th>Status</th><th>Action</th></tr></thead><tbody>
+<c:forEach var="item" items="${results.items}"><tr><td><strong><c:out value="${item.companyName}"/></strong><small><c:out value="${item.createdAt}"/></small></td><td><c:out value="${item.contactName}"/><small><c:out value="${item.applicantEmail}"/></small></td><td><c:out value="${item.businessType}"/></td><td><c:out value="${item.area}"/></td><td><span class="t9-pill t9-${item.status}"><c:out value="${item.status}"/></span></td><td><a href="${pageContext.request.contextPath}/admin/trade-application?id=<c:out value='${item.id}'/>">Review</a></td></tr></c:forEach>
+<c:if test="${empty results.items}"><tr><td colspan="6">No trade applications match this filter.</td></tr></c:if>
+</tbody></table></div>
+<nav class="a8-pages" aria-label="Trade application pagination"><c:if test="${results.hasPrevious}"><c:url var="previous" value="/admin/trade-applications"><c:param name="page" value="${results.page - 1}"/><c:param name="status" value="${statusFilter}"/></c:url><a href="${previous}">← Previous</a></c:if><span>Page <c:out value="${results.page}"/> · <c:out value="${results.total}"/> applications</span><c:if test="${results.hasNext}"><c:url var="next" value="/admin/trade-applications"><c:param name="page" value="${results.page + 1}"/><c:param name="status" value="${statusFilter}"/></c:url><a href="${next}">Next</a></c:if></nav>
+</section><p class="a8-warning">Approval is a demonstration review state only; no buyer roles or wholesale privileges are granted.</p>
+</main><%@ include file="/WEB-INF/views/fragments/admin-shell-end.jspf" %></body></html>

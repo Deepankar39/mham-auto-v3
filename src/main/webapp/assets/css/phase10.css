@@ -1,0 +1,49 @@
+/* Academic V1 Phase 10. Additive usability and accessibility refinements. */
+:root { color-scheme: light; }
+html { text-size-adjust: 100%; scroll-padding-top: 5rem; }
+body { overflow-wrap: anywhere; }
+.p10-skip { position: absolute; top: -100px; left: 12px; z-index: 2000; padding: 12px 16px;
+  border: 2px solid #17222c; border-radius: 6px; background: #fff; color: #17222c; font-weight: 700; }
+.p10-skip:focus { top: 12px; }
+html :is(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid #1863ae !important; outline-offset: 3px !important; }
+html :is(input, select, textarea) { max-width: 100%; }
+html :is(button, input, select, textarea) { font: inherit; }
+html :is(button, [type="submit"], [role="button"]) { cursor: pointer; }
+html :is(button, [type="submit"]):disabled { cursor: not-allowed; opacity: .65; }
+html :is(a, button) { -webkit-tap-highlight-color: transparent; }
+html :is(img) { height: auto; }
+html :is(.mh-nav, .main-nav, .a8-nav) a[aria-current="page"] { color: #a3261b; text-decoration: underline; text-underline-offset: 5px; }
+html :is(.mh-nav, .main-nav, .a8-nav) a:hover { text-decoration: underline; text-underline-offset: 4px; }
+html .p3-notice, html .p7-notice, html .a8-warning, html .t9-note { line-height: 1.55; }
+html .mh-secondary-catalog-btn { margin-left: 8px; background: #fff; color: #14202b; }
+html .a8-scroll { max-width: 100%; overflow-x: auto; }
+html .a8-scroll table { min-width: 680px; }
+html :is(.a4-error, .p7-error, .a8-error, .t9-error, [role="alert"]) { overflow-wrap: anywhere; }
+html .p10-page-marker { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 720px) {
+  html .mh-shell { width: min(100% - 32px, 1190px); }
+  html :is(.mh-menu-button, .a4-submit, .c5-add-form button, .c6-form button) { min-height: 44px; }
+  html :is(.p3-filters input, .p3-filters select, .a4-form input, .a8-form input,
+    .a8-form select, .a8-form textarea, .t9-form input, .t9-form select) { min-height: 44px; font-size: 16px; }
+  html .mh-secondary-catalog-btn { display: inline-flex; margin: 10px 0 0; }
+}
+@media (max-width: 600px) {
+  /* Homepage must remain navigable on mobile without introducing a JS-only menu. */
+  html .site-header .header-content { flex-wrap: wrap; }
+  html .site-header .main-nav { display: flex; width: 100%; flex-wrap: wrap; justify-content: flex-start;
+    gap: 10px 18px; padding-bottom: 12px; }
+  html .site-header .main-nav a { min-height: 36px; display: inline-flex; align-items: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  html *, html *::before, html *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+}
+@media print {
+  .mh-topbar, .mh-header, .mh-footer, .site-header, .a8-nav, .mh-menu-button, .p10-skip,
+  .mh-skip, form { display: none !important; }
+  body { color: #000; background: #fff; }
+}

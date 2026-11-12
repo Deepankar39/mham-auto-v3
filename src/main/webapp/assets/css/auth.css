@@ -1,0 +1,19 @@
+/* Phase 4: isolated account styles, leaving Phase 1–3 catalogue styling unchanged. */
+.a4-main{background:radial-gradient(ellipse at 10% 0,rgba(238,66,44,.07),transparent 36%),#f5f6f7;min-height:65vh;padding:76px 22px 96px}
+.a4-panel{width:min(100%,520px);margin:0 auto;padding:43px;background:#fff;border:1px solid #e4e7e9;box-shadow:0 20px 54px rgba(16,31,44,.055);border-radius:9px}
+.a4-panel.a4-dashboard{width:min(100%,780px)}.a4-eyebrow{color:#e34532;font-size:10px;font-weight:800;letter-spacing:2px;margin:0 0 20px}
+.a4-panel h1{font-size:clamp(30px,5vw,45px);font-weight:800;line-height:1.05;letter-spacing:-1.9px;margin:0 0 15px;color:#17212b}
+.a4-panel h1 span{color:#e94735}.a4-intro{font-size:14px;line-height:1.75;color:#677683;margin:0 0 26px}
+.a4-error{padding:13px 16px;color:#9b1a1a;background:#fff0ee;border:1px solid #efbcb5;border-radius:4px;line-height:1.5;margin:0 0 20px;font-size:13px}
+.a4-form{display:flex;flex-direction:column;gap:10px}.a4-form label{font-weight:750;color:#23313e;font-size:12px;margin-top:4px}
+.a4-form label small{font-size:11px;color:#73808a;font-weight:400}.a4-form input{width:100%;min-width:0;border:1px solid #cfd6da;border-radius:4px;min-height:47px;padding:12px 13px;background:#fff;font-size:14px;color:#1b2630;font:inherit}
+.a4-form input:focus{outline:2px solid #496b82;outline-offset:1px}.a4-password{display:flex;position:relative}.a4-password input{padding-right:72px}
+.a4-show{position:absolute;right:7px;top:6px;height:35px;padding:0 11px;border:0;background:#eef2f4;border-radius:3px;font-size:11px;cursor:pointer;color:#34434d}
+.a4-submit{display:flex;justify-content:space-between;align-items:center;border:0;border-radius:3px;background:#e74331;padding:15px 19px;margin-top:14px;color:white;font-size:13px;font-weight:800;cursor:pointer}
+.a4-submit:hover{background:#c63224}.a4-switch{margin:22px 0 0;text-align:center;font-size:13px;color:#7b858f}.a4-switch a{font-weight:750;color:#bb3328;text-decoration:underline}
+.a4-helper{font-size:11px;color:#687783;line-height:1.5;margin:4px 0 0}.a4-user-card{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}
+.a4-user-card>div{background:#f5f7f8;padding:20px;border:1px solid #e9ecef;border-radius:4px;overflow-wrap:anywhere}.a4-user-card small{font-size:10px;color:#77838d;letter-spacing:1.3px;display:block;margin-bottom:7px;font-weight:800}
+.a4-user-card strong{font-size:14px;color:#22313e}.a4-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}.a4-actions a{padding:12px 15px;background:#16212e;color:#fff;border-radius:4px;font-size:12px;font-weight:700}
+.a4-logout{margin-top:25px;border-top:1px solid #ebedef;padding-top:22px}.a4-logout button{padding:12px 18px;background:#fff;border:1px solid #bf362a;border-radius:4px;color:#a22f23;cursor:pointer;font-weight:750}
+.a4-logout button:hover{background:#fff3f1}.a4-main button:focus-visible,.a4-main a:focus-visible{outline:3px solid #1976d2;outline-offset:3px}
+@media(max-width:580px){.a4-main{padding:36px 16px 60px}.a4-panel{padding:27px 22px}.a4-actions{flex-direction:column}.a4-actions a{text-align:center}}

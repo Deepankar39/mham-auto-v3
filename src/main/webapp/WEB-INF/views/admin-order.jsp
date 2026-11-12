@@ -1,0 +1,16 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %><%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<!doctype html><html lang="en"><head><%@ include file="/WEB-INF/views/fragments/admin-head.jspf" %><title>Review Demo Order | MHAM AUTO</title><link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/premium.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ui-polish.css">
+<script defer src="${pageContext.request.contextPath}/assets/js/premium-interactions.js"></script>
+<script defer src="${pageContext.request.contextPath}/assets/js/ui-polish.js"></script>
+</head>
+<body><%@ include file="/WEB-INF/views/fragments/admin-shell-start.jspf" %><main id="main-content" class="a8-main mh-shell">
+<div class="a8-top"><div><p class="a8-kicker">ORDER REVIEW · DEMO ONLY</p><h1><c:out value="${orderDetail.order.reference}"/></h1><p>Placed <c:out value="${orderDetail.order.createdAt}"/> by <c:out value="${orderDetail.order.buyer}"/></p></div><a href="${pageContext.request.contextPath}/admin/orders">← All orders</a></div>
+<c:if test="${saved}"><p class="a8-success" role="status">Order status saved.</p></c:if>
+<div class="a8-grid"><section class="a8-panel"><h2>Original order snapshots</h2><div class="a8-scroll"><table class="a8-table"><thead><tr><th>Product</th><th>Qty</th><th>Unit</th><th>Total</th></tr></thead><tbody><c:forEach var="line" items="${orderDetail.lines}"><tr><td><strong><c:out value="${line.title}"/></strong><small><c:out value="${line.sku}"/> · <c:out value="${line.priceBasis}"/></small></td><td><c:out value="${line.quantity}"/></td><td>KWD <c:out value="${line.unitPrice}"/></td><td>KWD <c:out value="${line.lineTotal}"/></td></tr></c:forEach></tbody></table></div><p class="a8-total">Demo total: KWD <c:out value="${orderDetail.order.total}"/></p></section>
+<section class="a8-panel"><h2>Delivery-address snapshot</h2><p><strong><c:out value="${orderDetail.order.recipient}"/></strong></p><p><c:out value="${orderDetail.order.area}"/>, <c:out value="${orderDetail.order.governorate}"/><br><c:out value="${orderDetail.order.street}"/>, <c:out value="${orderDetail.order.building}"/></p>
+<h2>Demo review status</h2><p>Current: <strong><c:out value="${orderDetail.order.status}"/></strong></p>
+<c:if test="${orderDetail.order.status eq 'DEMO_PLACED'}"><form method="post" action="${pageContext.request.contextPath}/admin/order" class="a8-form"><input type="hidden" name="csrf" value="<c:out value='${csrfToken}'/>"><input type="hidden" name="id" value="<c:out value='${orderDetail.order.id}'/>"><label for="a8-next">Update status</label><select id="a8-next" name="status" required><option value="DEMO_REVIEWED">Reviewed</option><option value="DEMO_CANCELLED">Cancelled demo</option></select><button type="submit">Save demo status</button></form></c:if>
+<c:if test="${orderDetail.order.status ne 'DEMO_PLACED'}"><p class="a8-warning">This demo order is finalized for Demonstration V1 and cannot transition again.</p></c:if>
+</section></div><p class="a8-warning">Changing demo status does not trigger payments, refunds, stock reservations or delivery.</p>
+</main><%@ include file="/WEB-INF/views/fragments/admin-shell-end.jspf" %></body></html>

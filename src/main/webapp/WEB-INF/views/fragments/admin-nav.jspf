@@ -1,0 +1,8 @@
+<nav class="a8-nav" aria-label="Administrator menu">
+    <a href="${pageContext.request.contextPath}/admin">Overview</a>
+    <a href="${pageContext.request.contextPath}/admin/products">Products &amp; stock</a>
+    <a href="${pageContext.request.contextPath}/admin/categories">Categories</a>
+    <a href="${pageContext.request.contextPath}/admin/orders">Demo orders</a>
+    <a href="${pageContext.request.contextPath}/admin/trade-applications">Trade applications</a>
+    <a href="${pageContext.request.contextPath}/account">Customer account</a>
+</nav>

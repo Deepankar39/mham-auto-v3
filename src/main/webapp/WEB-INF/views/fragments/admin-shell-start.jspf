@@ -1,0 +1,25 @@
+<a class="mh-skip" href="#main-content">Skip to main content</a>
+<%@ include file="/WEB-INF/views/fragments/ui-icons.jspf" %>
+<div class="pro-admin-shell">
+  <aside class="pro-admin-sidebar" id="admin-sidebar" aria-label="Administrator navigation">
+    <a class="pro-admin-brand" href="${pageContext.request.contextPath}/admin"><img src="${pageContext.request.contextPath}/assets/images/mham-logo-3x.png" alt="MHAM" width="128" height="41"><span>AUTO <small>MANAGEMENT</small></span></a>
+    <div class="pro-admin-side-label">WORKSPACE</div>
+    <nav class="pro-admin-menu" aria-label="Management sections">
+      <a class="${adminPage eq '/admin' ? 'is-active' : ''}" aria-current="${adminPage eq '/admin' ? 'page' : 'false'}" href="${pageContext.request.contextPath}/admin"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-dashboard"/></svg><span>Overview</span></a>
+      <a class="${adminPage eq '/admin/products' or adminPage eq '/admin/product' ? 'is-active' : ''}" aria-current="${adminPage eq '/admin/products' or adminPage eq '/admin/product' ? 'page' : 'false'}" href="${pageContext.request.contextPath}/admin/products"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-package"/></svg><span>Products</span></a>
+      <a class="${adminPage eq '/admin/categories' ? 'is-active' : ''}" aria-current="${adminPage eq '/admin/categories' ? 'page' : 'false'}" href="${pageContext.request.contextPath}/admin/categories"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-layers"/></svg><span>Categories</span></a>
+      <a class="${adminPage eq '/admin/orders' or adminPage eq '/admin/order' ? 'is-active' : ''}" aria-current="${adminPage eq '/admin/orders' or adminPage eq '/admin/order' ? 'page' : 'false'}" href="${pageContext.request.contextPath}/admin/orders"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-cart"/></svg><span>Demo orders</span></a>
+      <a class="${adminPage eq '/admin/customers' ? 'is-active' : ''}" aria-current="${adminPage eq '/admin/customers' ? 'page' : 'false'}" href="${pageContext.request.contextPath}/admin/customers"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-users"/></svg><span>Customers</span></a>
+      <a class="${adminPage eq '/admin/trade-applications' or adminPage eq '/admin/trade-application' ? 'is-active' : ''}" aria-current="${adminPage eq '/admin/trade-applications' or adminPage eq '/admin/trade-application' ? 'page' : 'false'}" href="${pageContext.request.contextPath}/admin/trade-applications"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-handshake"/></svg><span>Trade applications</span></a>
+    </nav>
+    <div class="pro-admin-side-label">QUICK ACCESS</div>
+    <nav class="pro-admin-menu" aria-label="Admin shortcuts">
+      <a href="${pageContext.request.contextPath}/admin/product"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-plus"/></svg><span>Add product</span></a>
+      <a href="${pageContext.request.contextPath}/"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-external"/></svg><span>Visit storefront</span></a>
+      <a href="${pageContext.request.contextPath}/account"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-user"/></svg><span>My account</span></a>
+    </nav>
+    <div class="pro-admin-sidebar-bottom"><span class="pro-admin-avatar" aria-hidden="true">M</span><span><strong><c:choose><c:when test="${not empty sessionScope.authUser.displayName}"><c:out value="${sessionScope.authUser.displayName}"/></c:when><c:otherwise>Administrator</c:otherwise></c:choose></strong><small>Administrator</small></span></div>
+  </aside>
+  <div class="pro-admin-stage">
+    <header class="pro-admin-topbar"><div class="pro-admin-topbar-left"><button class="pro-admin-mobile-toggle" type="button" aria-expanded="false" aria-controls="admin-sidebar" aria-label="Open administrator menu"><svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-menu"/></svg></button><span class="pro-admin-breadcrumb">MHAM AUTO <span aria-hidden="true">/</span> Management</span></div><div class="pro-admin-topbar-right"><span class="pro-admin-environment">Demo environment</span><a href="${pageContext.request.contextPath}/" class="pro-admin-visit">View store <svg class="mh-icon" aria-hidden="true"><use href="#mh-icon-external"/></svg></a></div></header>
+    <div class="pro-admin-content">

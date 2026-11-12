@@ -1,0 +1,15 @@
+/* Error fallback intentionally independent of catalogue/homepage styles. */
+:root { color-scheme: light; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f6f8; color: #18212b; }
+.error-shell { width: min(100% - 2rem, 760px); min-height: 100vh; margin: auto; display: flex; flex-direction: column; justify-content: center; gap: 2.5rem; }
+.error-brand { align-self: flex-start; color: inherit; text-decoration: none; font-weight: 900; letter-spacing: -.03em; font-size: 1.2rem; }
+.error-brand strong { color: #c62a32; }
+.error-panel { padding: clamp(1.5rem, 5vw, 4rem); background: white; border: 1px solid #d9dee5; border-radius: 20px; box-shadow: 0 14px 45px rgb(22 31 42 / 6%); }
+.error-eyebrow { font-size: .75rem; font-weight: 800; letter-spacing: .12em; color: #687586; }
+h1 { font-size: clamp(2rem, 7vw, 3.5rem); margin: .7rem 0; letter-spacing: -.04em; }
+p { line-height: 1.65; color: #4d5966; max-width: 32rem; }
+.error-action { display: inline-flex; align-items: center; gap: .75rem; margin-top: 1.3rem; padding: .9rem 1.2rem; border-radius: 9px; color: white; background: #18212b; text-decoration: none; font-weight: 700; }
+.error-action:hover, .error-action:focus-visible { background: #a6212a; }
+a:focus-visible { outline: 3px solid #e55e63; outline-offset: 3px; }
+small { color: #667384; }

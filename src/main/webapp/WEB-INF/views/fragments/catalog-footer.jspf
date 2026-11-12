@@ -1,0 +1,9 @@
+<footer class="mh-footer">
+  <div class="mh-shell mh-footer-grid">
+    <div class="mh-footer-about"><a class="mh-brand" href="${pageContext.request.contextPath}/"><img class="mh-brand-logo" src="${pageContext.request.contextPath}/assets/images/mham-logo-3x.png" width="146" height="45" alt="MHAM brand"><span class="mh-brand-auto">AUTO</span></a><p>A better way to explore automotive spare parts for Kuwait's drivers, garages and workshops.</p><div class="mh-footer-mini">Kuwait · Automotive parts marketplace</div></div>
+    <div><h3>Explore</h3><a href="${pageContext.request.contextPath}/products">Shop all parts</a><a href="${pageContext.request.contextPath}/catalog">Parts categories</a><a href="${pageContext.request.contextPath}/trade/apply">Business enquiries</a></div>
+    <div><h3>Your account</h3><a href="${pageContext.request.contextPath}/account">Account overview</a><a href="${pageContext.request.contextPath}/orders">Order history</a><a href="${pageContext.request.contextPath}/addresses">Saved addresses</a><a href="${pageContext.request.contextPath}/cart">Shopping cart</a><a href="${pageContext.request.contextPath}/wishlist">Saved parts (local)</a></div>
+    <div><h3>Important information</h3><p>Current checkout, prices assigned for testing, inventory and order review operate in a demonstration environment. No payment, shipment or reservation is processed.</p></div>
+  </div>
+  <div class="mh-shell mh-footer-bottom"><span>© <%= java.time.Year.now().getValue() %> MHAM AUTO. All rights reserved.</span><span>Designed for Kuwait · Demo commerce environment</span></div>
+</footer>
